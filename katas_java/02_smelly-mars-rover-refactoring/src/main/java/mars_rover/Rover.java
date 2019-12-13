@@ -44,7 +44,9 @@ public class Rover {
                         direction = "N";
                     }
                 }
-            } else {
+            }
+
+            if (!(command.equals("l") || command.equals("r"))) {
 
                 // Displace Rover
                 int displacement1 = -1;
