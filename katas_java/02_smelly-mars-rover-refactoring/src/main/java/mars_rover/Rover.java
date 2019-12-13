@@ -100,5 +100,6 @@ public class Rover {
 
     private void setDirection(String direction) {
         this.direction = direction;
+        this.directionType = Direction.create(direction);
     }
 }
