@@ -3,7 +3,6 @@ package mars_rover;
 public class Rover {
 
     private Direction directionType;
-    private String direction;
     private int y;
     private int x;
 
@@ -65,15 +64,15 @@ public class Rover {
     }
 
     private boolean faceWest() {
-        return getDirection().equals("W");
+        return directionType.equals(Direction.W);
     }
 
     private boolean faceSouth() {
-        return getDirection().equals("S");
+        return directionType.equals(Direction.S);
     }
 
     private boolean faceNorth() {
-        return getDirection().equals("N");
+        return directionType.equals(Direction.N);
     }
 
     @Override
@@ -105,12 +104,7 @@ public class Rover {
                 '}';
     }
 
-    private String getDirection() {
-        return direction;
-    }
-
     private void setDirection(String direction) {
-        this.direction = direction;
         this.directionType = Direction.create(direction);
     }
 }
