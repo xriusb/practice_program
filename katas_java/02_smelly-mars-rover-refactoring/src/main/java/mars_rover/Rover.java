@@ -73,13 +73,12 @@ public class Rover {
 
         if (y != rover.y) return false;
         if (x != rover.x) return false;
-        return getDirection() != null ? getDirection().equals(rover.getDirection()) : rover.getDirection() == null;
-
+        return directionType == rover.directionType;
     }
 
     @Override
     public int hashCode() {
-        int result = getDirection() != null ? getDirection().hashCode() : 0;
+        int result = directionType != null ? directionType.hashCode() : 0;
         result = 31 * result + y;
         result = 31 * result + x;
         return result;
@@ -88,10 +87,10 @@ public class Rover {
     @Override
     public String toString() {
         return "Rover{" +
-            "direction='" + getDirection() + '\'' +
-            ", y=" + y +
-            ", x=" + x +
-            '}';
+                "directionType=" + directionType +
+                ", y=" + y +
+                ", x=" + x +
+                '}';
     }
 
     private String getDirection() {
