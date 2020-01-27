@@ -35,4 +35,12 @@ public class Coordinates {
                 ", y=" + y +
                 '}';
     }
+
+    public int y() {
+        return y;
+    }
+
+    public int x() {
+        return x;
+    }
 }
