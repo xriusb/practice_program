@@ -3,6 +3,7 @@ package mars_rover;
 public class Rover {
 
     private Direction direction;
+    private Coordinates coordinates;
     private int y;
     private int x;
 
