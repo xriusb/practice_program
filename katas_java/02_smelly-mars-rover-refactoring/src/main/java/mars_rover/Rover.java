@@ -66,6 +66,7 @@ public class Rover {
     private void setCoordinates(int x, int y) {
         this.y = y;
         this.x = x;
+        this.coordinates = new Coordinates(x, y);
     }
 
     private boolean faceWest() {
