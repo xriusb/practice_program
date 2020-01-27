@@ -9,8 +9,7 @@ public class Rover {
 
     public Rover(int x, int y, String direction) {
         this.direction = Direction.create(direction);
-        this.y = y;
-        this.x = x;
+        setCoordinates(x, y);
     }
 
     public void receive(String commandsSequence) {
@@ -52,16 +51,21 @@ public class Rover {
                 int displacement = displacement1;
 
                 if (faceNorth()) {
-                    y += displacement;
+                    setCoordinates(x, getY() + displacement);
                 } else if (faceSouth()) {
-                    y -= displacement;
+                    setCoordinates(x, getY() - displacement);
                 } else if (faceWest()) {
-                    x -= displacement;
+                    setCoordinates(getX() - displacement, y);
                 } else {
-                    x += displacement;
+                    setCoordinates(getX() + displacement, y);
                 }
             }
         }
+    }
+
+    private void setCoordinates(int x, int y) {
+        this.y = y;
+        this.x = x;
     }
 
     private boolean faceWest() {
@@ -83,16 +87,16 @@ public class Rover {
 
         Rover rover = (Rover) o;
 
-        if (y != rover.y) return false;
-        if (x != rover.x) return false;
+        if (getY() != rover.getY()) return false;
+        if (getX() != rover.getX()) return false;
         return direction == rover.direction;
     }
 
     @Override
     public int hashCode() {
         int result = direction != null ? direction.hashCode() : 0;
-        result = 31 * result + y;
-        result = 31 * result + x;
+        result = 31 * result + getY();
+        result = 31 * result + getX();
         return result;
     }
 
@@ -100,9 +104,16 @@ public class Rover {
     public String toString() {
         return "Rover{" +
                 "directionType=" + direction +
-                ", y=" + y +
-                ", x=" + x +
+                ", y=" + getY() +
+                ", x=" + getX() +
                 '}';
     }
 
+    public int getY() {
+        return y;
+    }
+
+    public int getX() {
+        return x;
+    }
 }
