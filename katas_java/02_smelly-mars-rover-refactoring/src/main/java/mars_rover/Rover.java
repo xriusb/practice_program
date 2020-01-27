@@ -51,13 +51,13 @@ public class Rover {
                 int displacement = displacement1;
 
                 if (faceNorth()) {
-                    setCoordinates(x, getY() + displacement);
+                    setCoordinates(getX(), getY() + displacement);
                 } else if (faceSouth()) {
-                    setCoordinates(x, getY() - displacement);
+                    setCoordinates(getX(), getY() - displacement);
                 } else if (faceWest()) {
-                    setCoordinates(getX() - displacement, y);
+                    setCoordinates(getX() - displacement, getY());
                 } else {
-                    setCoordinates(getX() + displacement, y);
+                    setCoordinates(getX() + displacement, getY());
                 }
             }
         }
@@ -88,25 +88,22 @@ public class Rover {
 
         Rover rover = (Rover) o;
 
-        if (getY() != rover.getY()) return false;
-        if (getX() != rover.getX()) return false;
-        return direction == rover.direction;
+        if (direction != rover.direction) return false;
+        return coordinates != null ? coordinates.equals(rover.coordinates) : rover.coordinates == null;
     }
 
     @Override
     public int hashCode() {
         int result = direction != null ? direction.hashCode() : 0;
-        result = 31 * result + getY();
-        result = 31 * result + getX();
+        result = 31 * result + (coordinates != null ? coordinates.hashCode() : 0);
         return result;
     }
 
     @Override
     public String toString() {
         return "Rover{" +
-                "directionType=" + direction +
-                ", y=" + getY() +
-                ", x=" + getX() +
+                "direction=" + direction +
+                ", coordinates=" + coordinates +
                 '}';
     }
 
