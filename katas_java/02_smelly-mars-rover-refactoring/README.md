@@ -50,6 +50,7 @@ https://www.youtube.com/watch?v=uV33Q9szres
 https://www.youtube.com/watch?v=Z4qn57If5Zs
 4. Replacing Conditional with Polymorphism
 https://www.youtube.com/watch?v=tDYYLIhB2Fs (editado) 
+
 The Limited Red Society, Joshua Kerievsky
 https://www.youtube.com/watch?v=6u0GknnOLnc (editado) 
 Examples lists in TDD
@@ -58,19 +59,19 @@ TDD Guided by ZOMBIES
 http://blog.wingman-sw.com/tdd-guided-by-zombies
 
 Links
-Code Smells: Long Method
+- Code Smells: Long Method
 http://www.informit.com/articles/article.aspx?p=1400866&seqNum=2 
-Code Smells: Feature Envy
+- Code Smells: Feature Envy
 http://www.informit.com/articles/article.aspx?p=1400866&seqNum=7 
-Code Smells: Data Clumps
+- Code Smells: Data Clumps
 http://www.informit.com/articles/article.aspx?p=1400866&seqNum=8
-Code Smells: Primitive Obsession
+- Code Smells: Primitive Obsession
 http://www.informit.com/articles/article.aspx?p=1400866&seqNum=9 (editado) 09:35
-Code Smell: Case Statements
+- Code Smell: Case Statements
 http://www.informit.com/articles/article.aspx?p=1400866&seqNum=10 (editado) 
-An example of introducing symmetry to enable duplication removal
+- An example of introducing symmetry to enable duplication removal
 https://codesai.com/2017/01/an-example-of-introducing-symmetry-to (editado) 
-Working efectively with legacy code
+- Working efectively with legacy code
 https://www.goodreads.com/book/show/44919.Working_Effectively_with_Legacy_Code
 
 Kata 2

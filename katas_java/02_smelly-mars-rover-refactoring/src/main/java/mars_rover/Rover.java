@@ -15,49 +15,63 @@ public class Rover {
             String command = commandsSequence.substring(i, i + 1);
 
             if (command.equals("l")) {
-                if (faceNorth()) {
-                    this.direction = Direction.W;
-                } else if (faceSouth()) {
-                    this.direction = Direction.E;
-                } else if (faceWest()) {
-                    this.direction = Direction.S;
-                } else {
-                    this.direction = Direction.N;
-                }
+                rotateLeft();
             }
-
             if (command.equals("r")) {
-                if (faceNorth()) {
-                    this.direction = Direction.E;
-                } else if (faceSouth()) {
-                    this.direction = Direction.W;
-                } else if (faceWest()) {
-                    this.direction = Direction.N;
-                } else {
-                    this.direction = Direction.S;
-                }
+                rotateRight();
             }
-
-            if (!(command.equals("l") || command.equals("r"))) {
-
-                // Displace Rover
-                int displacement1 = -1;
-
-                if (command.equals("f")) {
-                    displacement1 = 1;
-                }
-                int displacement = displacement1;
-
-                if (faceNorth()) {
-                    this.coordinates = new Coordinates(coordinates.x(), coordinates.y() + displacement);
-                } else if (faceSouth()) {
-                    this.coordinates = new Coordinates(coordinates.x(), coordinates.y() - displacement);
-                } else if (faceWest()) {
-                    this.coordinates = new Coordinates(coordinates.x() - displacement, coordinates.y());
-                } else {
-                    this.coordinates = new Coordinates(coordinates.x() + displacement, coordinates.y());
-                }
+            if (command.equals("f")){
+                moveForwards();
             }
+            if (command.equals("b")){
+                moveBackwards();
+            }
+        }
+    }
+
+    private void rotateLeft() {
+        if (faceNorth()) {
+            this.direction = Direction.W;
+        } else if (faceSouth()) {
+            this.direction = Direction.E;
+        } else if (faceWest()) {
+            this.direction = Direction.S;
+        } else {
+            this.direction = Direction.N;
+        }
+    }
+
+    private void rotateRight() {
+        if (faceNorth()) {
+            this.direction = Direction.E;
+        } else if (faceSouth()) {
+            this.direction = Direction.W;
+        } else if (faceWest()) {
+            this.direction = Direction.N;
+        } else {
+            this.direction = Direction.S;
+        }
+    }
+
+    private void moveForwards(){
+        int displacement = 1;
+        move(displacement);
+    }
+
+    private void moveBackwards(){
+        int displacement = -1;
+        move(displacement);
+    }
+
+    private void move(int displacement) {
+        if (faceNorth()) {
+            this.coordinates = new Coordinates(coordinates.x(), coordinates.y() + displacement);
+        } else if (faceSouth()) {
+            this.coordinates = new Coordinates(coordinates.x(), coordinates.y() - displacement);
+        } else if (faceWest()) {
+            this.coordinates = new Coordinates(coordinates.x() - displacement, coordinates.y());
+        } else {
+            this.coordinates = new Coordinates(coordinates.x() + displacement, coordinates.y());
         }
     }
 
