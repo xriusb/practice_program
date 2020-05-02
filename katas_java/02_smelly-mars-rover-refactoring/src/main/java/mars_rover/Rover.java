@@ -69,9 +69,9 @@ public class Rover {
         } else if (faceSouth()) {
             this.coordinates = coordinates.moveAlongY(-displacement);
         } else if (faceWest()) {
-            this.coordinates = new Coordinates(coordinates.x() - displacement, coordinates.y());
+            this.coordinates = coordinates.moveAlongX(-displacement);
         } else {
-            this.coordinates = new Coordinates(coordinates.x() + displacement, coordinates.y());
+            this.coordinates = coordinates.moveAlongX(displacement);
         }
     }
 
