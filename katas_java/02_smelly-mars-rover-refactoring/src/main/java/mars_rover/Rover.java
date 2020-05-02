@@ -65,9 +65,9 @@ public class Rover {
 
     private void move(int displacement) {
         if (faceNorth()) {
-            this.coordinates = new Coordinates(coordinates.x(), coordinates.y() + displacement);
+            this.coordinates = coordinates.moveAlongY(displacement);
         } else if (faceSouth()) {
-            this.coordinates = new Coordinates(coordinates.x(), coordinates.y() - displacement);
+            this.coordinates = coordinates.moveAlongY(-displacement);
         } else if (faceWest()) {
             this.coordinates = new Coordinates(coordinates.x() - displacement, coordinates.y());
         } else {

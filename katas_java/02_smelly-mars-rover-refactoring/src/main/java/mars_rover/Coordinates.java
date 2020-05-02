@@ -43,4 +43,8 @@ public class Coordinates {
     public int x() {
         return x;
     }
+
+    public Coordinates moveAlongY(int displacement) {
+        return new Coordinates(x(), y() + displacement);
+    }
 }
