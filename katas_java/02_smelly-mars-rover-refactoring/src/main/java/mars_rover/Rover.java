@@ -31,25 +31,25 @@ public class Rover {
 
     private void rotateLeft() {
         if (faceNorth()) {
-            this.direction = Direction.W;
+            direction = Direction.W;
         } else if (faceSouth()) {
-            this.direction = Direction.E;
+            direction = Direction.E;
         } else if (faceWest()) {
-            this.direction = Direction.S;
+            direction = Direction.S;
         } else {
-            this.direction = Direction.N;
+            direction = Direction.N;
         }
     }
 
     private void rotateRight() {
         if (faceNorth()) {
-            this.direction = Direction.E;
+            direction = Direction.E;
         } else if (faceSouth()) {
-            this.direction = Direction.W;
+            direction = Direction.W;
         } else if (faceWest()) {
-            this.direction = Direction.N;
+            direction = Direction.N;
         } else {
-            this.direction = Direction.S;
+            direction = Direction.S;
         }
     }
 
@@ -65,13 +65,13 @@ public class Rover {
 
     private void move(int displacement) {
         if (faceNorth()) {
-            this.coordinates = coordinates.moveAlongY(displacement);
+            coordinates = coordinates.moveAlongY(displacement);
         } else if (faceSouth()) {
-            this.coordinates = coordinates.moveAlongY(-displacement);
+            coordinates = coordinates.moveAlongY(-displacement);
         } else if (faceWest()) {
-            this.coordinates = coordinates.moveAlongX(-displacement);
+            coordinates = coordinates.moveAlongX(-displacement);
         } else {
-            this.coordinates = coordinates.moveAlongX(displacement);
+            coordinates = coordinates.moveAlongX(displacement);
         }
     }
 
