@@ -10,6 +10,14 @@ public class Coordinates {
         this.y = y;
     }
 
+    public Coordinates moveAlongY(int displacement) {
+        return new Coordinates(x, y + displacement);
+    }
+
+    public Coordinates moveAlongX(int displacement) {
+        return new Coordinates(x + displacement, y);
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -34,21 +42,5 @@ public class Coordinates {
                 "x=" + x +
                 ", y=" + y +
                 '}';
-    }
-
-    public int y() {
-        return y;
-    }
-
-    public int x() {
-        return x;
-    }
-
-    public Coordinates moveAlongY(int displacement) {
-        return new Coordinates(x(), y() + displacement);
-    }
-
-    public Coordinates moveAlongX(int displacement) {
-        return new Coordinates(x() + displacement, y());
     }
 }
