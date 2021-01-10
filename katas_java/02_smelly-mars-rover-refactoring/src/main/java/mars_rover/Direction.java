@@ -1,7 +1,30 @@
 package mars_rover;
 
 public enum Direction {
-    N, S, E, W;
+    N {
+        @Override
+        public Direction rotateLeft() {
+            return Direction.W;
+        }
+    },
+    S {
+        @Override
+        public Direction rotateLeft() {
+            return Direction.E;
+        }
+    },
+    E {
+        @Override
+        public Direction rotateLeft() {
+            return Direction.N;
+        }
+    },
+    W {
+        @Override
+        public Direction rotateLeft() {
+            return Direction.S;
+        }
+    };
 
     public static Direction create(String directionEncoding) {
         for(Direction d : Direction.values()){
@@ -11,4 +34,6 @@ public enum Direction {
         }
         throw new IllegalArgumentException();
     }
+
+    public abstract Direction rotateLeft();
 }
