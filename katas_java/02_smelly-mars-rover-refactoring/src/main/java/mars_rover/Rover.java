@@ -51,18 +51,6 @@ public class Rover {
         coordinates = direction.move(coordinates, displacement);
     }
 
-    private boolean faceWest() {
-        return direction.equals(Direction.W);
-    }
-
-    private boolean faceSouth() {
-        return direction.equals(Direction.S);
-    }
-
-    private boolean faceNorth() {
-        return direction.equals(Direction.N);
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
