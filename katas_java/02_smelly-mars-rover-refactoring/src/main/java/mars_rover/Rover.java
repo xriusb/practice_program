@@ -48,15 +48,7 @@ public class Rover {
     }
 
     private void move(int displacement) {
-        if (faceNorth()) {
-            coordinates = coordinates.moveAlongY(displacement);
-        } else if (faceSouth()) {
-            coordinates = coordinates.moveAlongY(-displacement);
-        } else if (faceWest()) {
-            coordinates = coordinates.moveAlongX(-displacement);
-        } else {
-            coordinates = coordinates.moveAlongX(displacement);
-        }
+        coordinates = direction.move(coordinates, displacement);
     }
 
     private boolean faceWest() {

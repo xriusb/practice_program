@@ -11,6 +11,11 @@ public enum Direction {
         public Direction rotateRight() {
             return Direction.E;
         }
+
+        @Override
+        public Coordinates move(Coordinates coordinates, int displacement) {
+            return coordinates.moveAlongY(displacement);
+        }
     },
     S {
         @Override
@@ -21,6 +26,11 @@ public enum Direction {
         @Override
         public Direction rotateRight() {
             return Direction.W;
+        }
+
+        @Override
+        public Coordinates move(Coordinates coordinates, int displacement) {
+            return coordinates.moveAlongY(-displacement);
         }
     },
     E {
@@ -33,6 +43,11 @@ public enum Direction {
         public Direction rotateRight() {
             return Direction.S;
         }
+
+        @Override
+        public Coordinates move(Coordinates coordinates, int displacement) {
+            return coordinates.moveAlongX(displacement);
+        }
     },
     W {
         @Override
@@ -43,6 +58,11 @@ public enum Direction {
         @Override
         public Direction rotateRight() {
             return Direction.N;
+        }
+
+        @Override
+        public Coordinates move(Coordinates coordinates, int displacement) {
+            return coordinates.moveAlongX(-displacement);
         }
     };
 
@@ -56,5 +76,8 @@ public enum Direction {
     }
 
     public abstract Direction rotateLeft();
+
     public abstract Direction rotateRight();
+
+    public abstract Coordinates move(Coordinates coordinates, int displacement);
 }
