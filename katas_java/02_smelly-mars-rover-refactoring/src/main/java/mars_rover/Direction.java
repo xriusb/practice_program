@@ -6,11 +6,21 @@ public enum Direction {
         public Direction rotateLeft() {
             return Direction.W;
         }
+
+        @Override
+        public Direction rotateRight() {
+            return Direction.E;
+        }
     },
     S {
         @Override
         public Direction rotateLeft() {
             return Direction.E;
+        }
+
+        @Override
+        public Direction rotateRight() {
+            return Direction.W;
         }
     },
     E {
@@ -18,11 +28,21 @@ public enum Direction {
         public Direction rotateLeft() {
             return Direction.N;
         }
+
+        @Override
+        public Direction rotateRight() {
+            return Direction.S;
+        }
     },
     W {
         @Override
         public Direction rotateLeft() {
             return Direction.S;
+        }
+
+        @Override
+        public Direction rotateRight() {
+            return Direction.N;
         }
     };
 
@@ -36,4 +56,5 @@ public enum Direction {
     }
 
     public abstract Direction rotateLeft();
+    public abstract Direction rotateRight();
 }
