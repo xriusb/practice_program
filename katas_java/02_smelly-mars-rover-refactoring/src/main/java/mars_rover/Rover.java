@@ -3,6 +3,10 @@ package mars_rover;
 public class Rover {
 
     private static final int DISPLACEMENT = 1;
+    private static final String LEFT = "l";
+    private static final String RIGHT = "r";
+    private static final String FORWARD = "f";
+    private static final String BACKWARD = "b";
 
     private Direction direction;
     private Coordinates coordinates;
@@ -15,19 +19,22 @@ public class Rover {
     public void receive(String commandsSequence) {
         for (int i = 0; i < commandsSequence.length(); ++i) {
             String command = commandsSequence.substring(i, i + 1);
+            execute(command);
+        }
+    }
 
-            if (command.equals("l")) {
-                direction = direction.rotateLeft();
-            }
-            if (command.equals("r")) {
-                direction = direction.rotateRight();
-            }
-            if (command.equals("f")){
-                coordinates = direction.move(coordinates, DISPLACEMENT);
-            }
-            if (command.equals("b")){
-                coordinates = direction.move(coordinates, -DISPLACEMENT);
-            }
+    private void execute(String command) {
+        if (LEFT.equals(command)) {
+            direction = direction.rotateLeft();
+        }
+        if (RIGHT.equals(command)) {
+            direction = direction.rotateRight();
+        }
+        if (FORWARD.equals(command)){
+            coordinates = direction.move(coordinates, DISPLACEMENT);
+        }
+        if (BACKWARD.equals(command)){
+            coordinates = direction.move(coordinates, -DISPLACEMENT);
         }
     }
 
