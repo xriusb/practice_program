@@ -2,6 +2,8 @@ package mars_rover;
 
 public class Rover {
 
+    private static final int DISPLACEMENT = 1;
+
     private Direction direction;
     private Coordinates coordinates;
 
@@ -15,40 +17,18 @@ public class Rover {
             String command = commandsSequence.substring(i, i + 1);
 
             if (command.equals("l")) {
-                rotateLeft();
+                direction = direction.rotateLeft();
             }
             if (command.equals("r")) {
-                rotateRight();
+                direction = direction.rotateRight();
             }
             if (command.equals("f")){
-                moveForwards();
+                coordinates = direction.move(coordinates, DISPLACEMENT);
             }
             if (command.equals("b")){
-                moveBackwards();
+                coordinates = direction.move(coordinates, -DISPLACEMENT);
             }
         }
-    }
-
-    private void rotateLeft() {
-        direction = direction.rotateLeft();
-    }
-
-    private void rotateRight() {
-        direction = direction.rotateRight();
-    }
-
-    private void moveForwards(){
-        int displacement = 1;
-        move(displacement);
-    }
-
-    private void moveBackwards(){
-        int displacement = -1;
-        move(displacement);
-    }
-
-    private void move(int displacement) {
-        coordinates = direction.move(coordinates, displacement);
     }
 
     @Override
